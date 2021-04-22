@@ -7,5 +7,6 @@ composer.phar
 composer.lock
 phpunit.xml
 .phpunit.result.cache
+.php_cs.cache
 .DS_Store
 Thumbs.db
