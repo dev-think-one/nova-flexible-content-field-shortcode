@@ -23,10 +23,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             $this->commands([
             ]);
         }
-        Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-flexible-content-field-shortcode', __DIR__.'/../dist/js/field.js');
-            Nova::style('nova-flexible-content-field-shortcode', __DIR__.'/../dist/css/field.css');
-        });
+        /** @psalm-suppress UndefinedClass **/
+        if (class_exists(Nova::class)) {
+            Nova::serving(function (ServingNova $event) {
+                Nova::script('nova-flexible-content-field-shortcode', __DIR__ . '/../dist/js/field.js');
+                Nova::style('nova-flexible-content-field-shortcode', __DIR__ . '/../dist/css/field.css');
+            });
+        }
     }
 
     /**

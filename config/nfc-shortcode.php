@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'key' => 'key',
+    'key' => env('NFC_SHORTCODE_KEY', 'key'),
 
     'presenters' => [
         #'image'  => \SomeDomain\ImageWithCaption::class,

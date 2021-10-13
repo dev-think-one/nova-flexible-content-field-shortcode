@@ -21,7 +21,7 @@ abstract class ViewPresenter implements ShortcodePresenter
 
     public function viewPath(string $key, array $attributes = [], array $options = []): string
     {
-        if (! $this->viewPath) {
+        if (!$this->viewPath) {
             return 'shortcodes.' . Str::kebab(class_basename(get_called_class()));
         }
 

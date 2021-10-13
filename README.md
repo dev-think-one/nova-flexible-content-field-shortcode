@@ -1,5 +1,15 @@
 # Laravel nova shortcode based on "nova-flexible-content"
-A very highly targeted package. Designed specifically for the ability to add shortcodes to existing content. If you are just starting to develop an application then just use "whitecube/nova-flexible-content" or alternative without using this package. The package is needed if you already have a large amount of content, and the client requires adding new functionality
+
+[![Packagist License](https://img.shields.io/packagist/l/yaroslawww/nova-flexible-content-field-shortcode?color=%234dc71f)](https://github.com/yaroslawww/nova-flexible-content-field-shortcode/blob/master/LICENSE.md)
+[![Packagist Version](https://img.shields.io/packagist/v/yaroslawww/nova-flexible-content-field-shortcode)](https://packagist.org/packages/yaroslawww/nova-flexible-content-field-shortcode)
+[![Build Status](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/badges/build.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/?branch=master)
+
+A very highly targeted package. Designed specifically for the ability to add shortcodes to existing content. If you are
+just starting to develop an application then just use "whitecube/nova-flexible-content" or alternative without using
+this package. The package is needed if you already have a large amount of content, and the client requires adding new
+functionality
 
 ## Installation
 
@@ -108,6 +118,34 @@ public function presentersMap(): array
         )->renderShortcodes(
             $content // text containing shortcode, maybe you need to filter it to prevent xss
         )
+```
+
+### Example with trait
+
+```injectablephp
+class Article extends Model {
+
+    use HasShortcodes;
+
+    public function shortcodesMap(): array {
+        return [ 'image' => ImageWithCaption::class, ];
+    }
+
+    public function getFullContentAttribute(): string {
+        return $this->getDataWithShortcodes( WysiwygHelper::filter( (string) $this->content ) );
+    }
+    
+    public function getFullContentOtherAttribute(): string {
+        return $this->getDataWithShortcodes( WysiwygHelper::filter( (string) $this->content_other ) );
+    }
+}
+```
+
+Ant then call it:
+
+```injectablephp
+{!! $article->full_content !!}
+{!! $article->full_content_other !!}
 ```
 
 ## Credits
