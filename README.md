@@ -141,7 +141,7 @@ class Article extends Model {
 }
 ```
 
-Ant then call it:
+Then call it:
 
 ```injectablephp
 {!! $article->full_content !!}
