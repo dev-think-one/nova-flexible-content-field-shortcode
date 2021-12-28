@@ -8,7 +8,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-flexible-content-field-shortcode/?branch=master)
 
 A very highly targeted package. Designed specifically for the ability to add shortcodes to existing content. If you are
-just starting to develop an application then just use "whitecube/nova-flexible-content" or alternative without using
+just starting to develop an application then just use "yaroslawww/nova-flexible-content" or alternative without using
 this package. The package is needed if you already have a large amount of content, and the client requires adding new
 functionality
 
@@ -16,10 +16,10 @@ functionality
 
 You can install the package via composer:
 
-1. Install "flexible content" package. Read [documentation](https://whitecube.github.io/nova-flexible-content/#/)
+1. Install "flexible content" package.
 
 ```bash
-composer require whitecube/nova-flexible-content
+composer require yaroslawww/nova-flexible-content
 ```
 
 2. Install "shortcode" package
