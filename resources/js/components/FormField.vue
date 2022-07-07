@@ -1,29 +1,27 @@
 <template>
-    <default-field :field="field" :errors="errors" :show-help-text="showHelpText">
-        <template slot="field">
+    <DefaultField :field="field" :errors="errors" :show-help-text="showHelpText">
+        <template #field>
             <div class="relative">
                 <code class="font-bold text-sm cursor-pointer" @click="copyToClipboard">{{ shortcode }}</code>
                 <transition>
                     <div v-if="copiedFlag"
                          style="right: 110%; top: 0;"
-                    class="absolute btn btn-default btn-primary inline-flex items-center pointer-events-none"
+                    class="absolute px-2 py-1 border border-red-500 bg-red-500 rounded text-white inline-block text-red-500 text-xs font-bold mt-1 text-center uppercase items-center pointer-events-none"
                     >
                         Copied!
                     </div>
                 </transition>
             </div>
         </template>
-    </default-field>
+    </DefaultField>
 </template>
 
 <script>
-import {FormField, HandlesValidationErrors} from 'laravel-nova'
+import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
-
     props: ['resourceName', 'resourceId', 'field'],
-
     data() {
         return {
             copiedFlag: false,
@@ -38,20 +36,12 @@ export default {
     },
 
     methods: {
-        /*
-         * Set the initial, internal value for the field.
-         */
         setInitialValue() {
             this.value = this.field.value || ''
         },
-
-        /**
-         * Fill the given FormData object with the field's internal value.
-         */
         fill(formData) {
             // formData.append(this.field.attribute, this.value || '')
         },
-
         copyToClipboard() {
             const el = document.createElement('textarea');
             el.value = this.shortcode;

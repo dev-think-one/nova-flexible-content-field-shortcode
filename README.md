@@ -12,6 +12,11 @@ just starting to develop an application then just use "yaroslawww/nova-flexible-
 this package. The package is needed if you already have a large amount of content, and the client requires adding new
 functionality
 
+| Nova | Package |
+|------|---------|
+| V1   | V1 V2   |
+| V4   | V3      |
+
 ## Installation
 
 You can install the package via composer:
