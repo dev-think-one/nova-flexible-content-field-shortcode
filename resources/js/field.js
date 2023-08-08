@@ -1,9 +1,9 @@
-import IndexField from './components/IndexField'
-import DetailField from './components/DetailField'
-import FormField from './components/FormField'
+import IndexField from './components/ShortcodeTextIndexField'
+import DetailField from './components/ShortcodeTextDetailField'
+import FormField from './components/ShortcodeTextFormField'
 
 Nova.booting((app, store) => {
-    app.component('index-shortcode-text', IndexField)
-    app.component('detail-shortcode-text', DetailField)
-    app.component('form-shortcode-text', FormField)
+    app.component('IndexShortcodeText', IndexField)
+    app.component('DetailShortcodeText', DetailField)
+    app.component('FormShortcodeText', FormField)
 })

@@ -2,6 +2,7 @@
 
 namespace ThinkOne\NovaFlexibleContentFieldShortcode\Tests;
 
+use ThinkOne\NovaFlexibleContentFieldShortcode\Tests\Fixtures\Models\CustomPost;
 use ThinkOne\NovaFlexibleContentFieldShortcode\Tests\Fixtures\Models\Post;
 use ThinkOne\NovaFlexibleContentFieldShortcode\Tests\Fixtures\Models\PostWithNoViewPresenter;
 
@@ -39,6 +40,19 @@ class HasShortcodesTest extends TestCase
 
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('View [shortcodes.image-no-view-presenter] not found.');
+
+        // Trigger to throw error
         $post->full_content;
+    }
+
+    /** @test */
+    public function shortcode_field_can_be_override()
+    {
+        $model = new CustomPost();
+
+        $this->assertEquals('shorts', $model->shortcodesKey());
+
+        $this->assertIsArray($model->shortcodesMap());
+        $this->assertEmpty($model->shortcodesMap());
     }
 }

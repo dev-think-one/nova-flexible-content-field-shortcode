@@ -24,7 +24,7 @@ You can install the package via composer:
 1. Install "flexible content" package.
 
 ```bash
-composer require yaroslawww/nova-flexible-content
+composer require think.studio/nova-flexible-content
 ```
 
 2. Install "shortcode" package
