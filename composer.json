@@ -1,5 +1,5 @@
 {
-    "name": "yaroslawww/nova-flexible-content-field-shortcode",
+    "name": "think.studio/nova-flexible-content-field-shortcode",
     "description": "Designed specifically for the ability to add shortcodes to existing content.",
     "keywords": [
         "laravel-nova",
@@ -18,7 +18,7 @@
     "authors": [
         {
             "name": "Yaroslav Georgitsa",
-            "email": "yaroslav.georgitsa@gmail.com",
+            "email": "yg@think.studio",
             "homepage": "https://github.com/yaroslawww",
             "role": "Developer"
         }
@@ -33,6 +33,7 @@
         "orchestra/testbench": "^8.6",
         "phpunit/phpunit": "^10.3",
         "psalm/plugin-laravel": "^2.8",
+        "think.studio/nova-flexible-content": "^4.0",
         "vimeo/psalm": "^5.14"
     },
     "autoload": {
